@@ -42,3 +42,10 @@ class TransactionManager:
     def calculate_total(self, t_type):
         """Calculate total income or expense"""
         return sum(t["amount"] for t in self.transactions if t["type"] == t_type)
+
+"""
+TransactionManager Module
+--------------------------
+Provides class to manage income and expense transactions.
+Includes add, view, filter, and summary features.
+"""
