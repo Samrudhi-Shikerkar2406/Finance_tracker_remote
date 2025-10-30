@@ -49,3 +49,14 @@ TransactionManager Module
 Provides class to manage income and expense transactions.
 Includes add, view, filter, and summary features.
 """
+
+from transactions import TransactionManager
+
+tm = TransactionManager()
+tm.add_transaction(1000, "salary", "income")
+tm.add_transaction(200, "food", "expense")
+tm.add_transaction(300, "travel", "expense")
+
+print("All Transactions:", tm.get_all_transactions())
+print("Expense Total:", tm.calculate_total("expense"))
+print("Food Only:", tm.get_transactions_by_category("Food"))
