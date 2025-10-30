@@ -38,3 +38,7 @@ class TransactionManager:
     def get_transactions_by_type(self, t_type):
         """Return all income or expense transactions"""
         return [t for t in self.transactions if t["type"] == t_type]
+    
+    def calculate_total(self, t_type):
+        """Calculate total income or expense"""
+        return sum(t["amount"] for t in self.transactions if t["type"] == t_type)
