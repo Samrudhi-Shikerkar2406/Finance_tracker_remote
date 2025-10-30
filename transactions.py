@@ -1,11 +1,11 @@
 # transactions.py - transaction management module"
 # Author: Samrudhi Shikerkar
 # Handles adding, viewing, and categorizing income and expense transactions.
-
 import datetime
 
 class TransactionManager:
     def __init__(self):
+        # stores all transactions as list of dicts
         self.transactions = []
 
     def add_transaction(self, amount, category, t_type, date=None, note=""):
@@ -20,3 +20,7 @@ class TransactionManager:
             "note": note
         }
         self.transactions.append(transaction)
+
+    def get_all_transactions(self):
+        """Return list of all transactions"""
+        return self.transactions
