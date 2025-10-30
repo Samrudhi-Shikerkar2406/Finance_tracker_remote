@@ -24,3 +24,7 @@ class TransactionManager:
     def get_all_transactions(self):
         """Return list of all transactions"""
         return self.transactions
+    
+    def get_transactions_by_category(self, category):
+        """Return transactions of a specific category"""
+        return [t for t in self.transactions if t["category"] == category]
