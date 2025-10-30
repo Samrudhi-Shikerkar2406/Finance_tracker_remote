@@ -1,10 +1,18 @@
-# transactions.py - transaction management module"
+# transactions.py - transaction management module
 # Author: Samrudhi Shikerkar
 # Handles adding, viewing, and categorizing income and expense transactions.
 
 import datetime
 
+
 class TransactionManager:
+    """
+    TransactionManager Module
+    --------------------------
+    Provides class to manage income and expense transactions.
+    Includes add, view, filter, and summary features.
+    """
+
     def __init__(self):
         # Stores all transactions as a list of dictionaries
         self.transactions = []
@@ -38,25 +46,21 @@ class TransactionManager:
     def get_transactions_by_type(self, t_type):
         """Return all income or expense transactions"""
         return [t for t in self.transactions if t["type"] == t_type]
-    
+
     def calculate_total(self, t_type):
         """Calculate total income or expense"""
         return sum(t["amount"] for t in self.transactions if t["type"] == t_type)
 
-"""
-TransactionManager Module
---------------------------
-Provides class to manage income and expense transactions.
-Includes add, view, filter, and summary features.
-"""
 
-from transactions import TransactionManager
+# ---------------------- #
+# Temporary Test Section #
+# ---------------------- #
+if __name__ == "__main__":
+    tm = TransactionManager()
+    tm.add_transaction(1000, "salary", "income")
+    tm.add_transaction(200, "food", "expense")
+    tm.add_transaction(300, "travel", "expense")
 
-tm = TransactionManager()
-tm.add_transaction(1000, "salary", "income")
-tm.add_transaction(200, "food", "expense")
-tm.add_transaction(300, "travel", "expense")
-
-print("All Transactions:", tm.get_all_transactions())
-print("Expense Total:", tm.calculate_total("expense"))
-print("Food Only:", tm.get_transactions_by_category("Food"))
+    print("All Transactions:", tm.get_all_transactions())
+    print("Expense Total:", tm.calculate_total("expense"))
+    print("Food Only:", tm.get_transactions_by_category("Food"))
