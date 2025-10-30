@@ -51,6 +51,13 @@ class TransactionManager:
         """Calculate total income or expense"""
         return sum(t["amount"] for t in self.transactions if t["type"] == t_type)
 
+    def get_transactions_by_date_range(self, start_date, end_date):
+        """Return transactions between two dates (YYYY-MM-DD)"""
+        return [
+            t for t in self.transactions
+            if start_date <= t["date"] <= end_date
+        ]
+
 
 # ---------------------- #
 # Temporary Test Section #
@@ -64,3 +71,7 @@ if __name__ == "__main__":
     print("All Transactions:", tm.get_all_transactions())
     print("Expense Total:", tm.calculate_total("expense"))
     print("Food Only:", tm.get_transactions_by_category("Food"))
+
+    # Example test for date range (using today's date)
+    today = datetime.date.today().isoformat()
+    print("Transactions Today:", tm.get_transactions_by_date_range(today, today))
