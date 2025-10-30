@@ -3,4 +3,6 @@
 # Handles adding, viewing, and categorizing income and expense transactions.
 
 class TransactionManager:
-    pass
+    def __init__(self):
+        # stores all transactions as list of dicts
+        self.transactions = []
