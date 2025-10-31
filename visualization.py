@@ -25,3 +25,11 @@ class VisualizationManager:
     def notify(self, message):
         """Print alert notifications (console-based)."""
         print(f"ALERT: {message}")
+
+# Test data
+transactions = [
+    {'type': 'expense', 'category': 'Food', 'amount': 300},
+    {'type': 'expense', 'category': 'Transport', 'amount': 150},
+    {'type': 'expense', 'category': 'Entertainment', 'amount': 100},
+    {'type': 'income', 'category': 'Salary', 'amount': 2000}
+]
