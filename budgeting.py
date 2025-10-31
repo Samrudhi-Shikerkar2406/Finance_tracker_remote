@@ -20,5 +20,6 @@ class BudgetManager:
             'spent': spent,
             'pending': self.get_budget(category) - spent
         }
-
+  
+    def update_budget(self, category, new_amount):
 
