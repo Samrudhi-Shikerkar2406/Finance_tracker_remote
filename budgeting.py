@@ -12,3 +12,5 @@ class BudgetManager:
         """Retrieve the allocated budget for a category."""
         return self.budgets.get(category, 0)
 
+    def check_spending(self, category, transactions):
+        
