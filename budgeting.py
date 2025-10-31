@@ -29,3 +29,5 @@ class BudgetManager:
         else:
             print(f"No existing budget for '{category}' to update.")
 
+    def list_budgets(self):
+
