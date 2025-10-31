@@ -1,3 +1,5 @@
 print("The budgeting.py handles budget setting and pending calculations for each category.")
 
 class BudgetManager:
+    def __init__(self):
+        self.budgets = {}
