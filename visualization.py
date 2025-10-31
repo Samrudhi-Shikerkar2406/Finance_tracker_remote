@@ -22,4 +22,6 @@ class VisualizationManager:
         plt.title('Expense by Category')
         plt.show()
 
-        
+    def notify(self, message):
+        """Print alert notifications (console-based)."""
+        print(f"ALERT: {message}")
