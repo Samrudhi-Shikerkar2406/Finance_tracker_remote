@@ -30,4 +30,11 @@ class BudgetManager:
             print(f"No existing budget for '{category}' to update.")
 
     def list_budgets(self):
+        """Display all categories with their allocated budgets."""
+        if not self.budgets:
+            print("No budgets have been set yet.")
+        else:
+            for category, amount in self.budgets.items():
+                print(f"{category}: ₹{amount}")
+
 
