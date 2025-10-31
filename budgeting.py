@@ -20,6 +20,12 @@ class BudgetManager:
             'spent': spent,
             'pending': self.get_budget(category) - spent
         }
-  
+
     def update_budget(self, category, new_amount):
+        """Update the budget amount for an existing category."""
+        if category in self.budgets:
+            self.budgets[category] = new_amount
+            print(f"Budget for '{category}' updated to {new_amount}.")
+        else:
+            print(f"No existing budget for '{category}' to update.")
 
