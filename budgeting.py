@@ -37,4 +37,3 @@ class BudgetManager:
             for category, amount in self.budgets.items():
                 print(f"{category}: ₹{amount}")
 
-
