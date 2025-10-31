@@ -33,3 +33,8 @@ transactions = [
     {'type': 'expense', 'category': 'Entertainment', 'amount': 100},
     {'type': 'income', 'category': 'Salary', 'amount': 2000}
 ]
+
+# Run test
+vm = VisualizationManager(transactions)
+vm.plot_expense_pie()
+vm.notify("Expense limit nearing!")
