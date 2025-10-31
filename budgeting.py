@@ -15,5 +15,10 @@ class BudgetManager:
     def check_spending(self, category, transactions):
         """Track spent vs pending for a category."""
         spent = sum(t['amount'] for t in transactions if t['category'] == category and t['type'] == 'expense')
+        return {
+            'budget': self.get_budget(category),
+            'spent': spent,
+            'pending': self.get_budget(category) - spent
+        }
 
 
