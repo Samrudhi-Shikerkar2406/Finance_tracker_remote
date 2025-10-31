@@ -5,3 +5,5 @@ class BudgetManager:
         self.budgets = {}
 
     def set_budget(self, category, amount):
+        """Assign a budget to a specific category."""
+        self.budgets[category] = amount
