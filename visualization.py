@@ -16,6 +16,11 @@ class VisualizationManager:
         for t in self.transactions:
             if t['type'] == 'expense':
                 category_totals[t['category']] = category_totals.get(t['category'], 0) + t['amount']
+
+        if not category_totals:
+            print("No expense transactions to display.")
+            return
+        
         labels = list(category_totals.keys())
         sizes = list(category_totals.values())
         plt.pie(sizes, labels=labels, autopct='%1.1f%%')
