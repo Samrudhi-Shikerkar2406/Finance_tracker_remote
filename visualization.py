@@ -32,14 +32,15 @@ class VisualizationManager:
         print(f"ALERT: {message}")
 
 # Test data
-transactions = [
-    {'type': 'expense', 'category': 'Food', 'amount': 300},
-    {'type': 'expense', 'category': 'Transport', 'amount': 150},
-    {'type': 'expense', 'category': 'Entertainment', 'amount': 100},
-    {'type': 'income', 'category': 'Salary', 'amount': 2000}
-]
+if __name__ == "__main__":  #  correct condition
+    transactions = [
+        {'type': 'expense', 'category': 'Food', 'amount': 300},
+        {'type': 'expense', 'category': 'Transport', 'amount': 150},
+        {'type': 'expense', 'category': 'Entertainment', 'amount': 100},
+        {'type': 'income', 'category': 'Salary', 'amount': 2000}
+    ]
 
-# Run test
-vm = VisualizationManager(transactions)
-vm.plot_expense_pie()
-vm.notify("Expense limit nearing!")
+
+    vm = VisualizationManager(transactions)
+    vm.plot_expense_pie()
+    vm.notify("Expense limit nearing!")
