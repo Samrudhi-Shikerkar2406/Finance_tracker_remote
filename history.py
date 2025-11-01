@@ -20,3 +20,6 @@ class TransactionManager:
 class HistoryManager:
     def __init__(self, transaction_manager):
         self.tm = transaction_manager
+
+    def show_all(self):
+        return self.tm.get_all_transactions()    
