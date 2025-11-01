@@ -27,3 +27,6 @@ class HistoryManager:
      def filter_by_date(self, start_date, end_date):
         transactions = self.tm.get_all_transactions()
         return [t for t in transactions if start_date <= t['date'] <= end_date]
+    
+    def filter_by_category(self, category):
+        return self.tm.get_transactions_by_category(category)
