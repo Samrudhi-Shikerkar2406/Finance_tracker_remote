@@ -10,3 +10,6 @@ class TransactionManager:
             {'id': 2, 'date': '2025-10-12', 'category': 'Travel', 'amount': 300},
             {'id': 3, 'date': '2025-10-15', 'category': 'Food', 'amount': 50},
         ]
+
+    def get_all_transactions(self):
+        return self.transactions
