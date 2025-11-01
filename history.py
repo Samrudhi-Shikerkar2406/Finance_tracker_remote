@@ -3,19 +3,19 @@
 # Provides methods for transaction history display and filtering.
 
 class TransactionManager:
-     """Mock TransactionManager for testing HistoryManager"""
-    def __init__(self):
+    """Mock TransactionManager for testing HistoryManager"""
+    def __init__ (self) :
         self.transactions = [
             {'id': 1, 'date': '2025-10-10', 'category': 'Food', 'amount': 120},
             {'id': 2, 'date': '2025-10-12', 'category': 'Travel', 'amount': 300},
             {'id': 3, 'date': '2025-10-15', 'category': 'Food', 'amount': 50},
         ]
-
     def get_all_transactions(self):
         return self.transactions
 
     def get_transactions_by_category(self, category):
         return [t for t in self.transactions if t['category'] == category]
+
 
 class HistoryManager:
     def __init__(self, transaction_manager):
@@ -24,9 +24,22 @@ class HistoryManager:
     def show_all(self):
         return self.tm.get_all_transactions()    
     
-     def filter_by_date(self, start_date, end_date):
+    def filter_by_date(self, start_date, end_date):
         transactions = self.tm.get_all_transactions()
         return [t for t in transactions if start_date <= t['date'] <= end_date]
     
     def filter_by_category(self, category):
         return self.tm.get_transactions_by_category(category)
+    
+if __name__ == "__main__":
+    tm = TransactionManager()
+    hm = HistoryManager(tm)
+
+    print("All Transactions:")
+    print(hm.show_all())
+
+    print("\nFiltered by Date (2025-10-11 to 2025-10-15):")
+    print(hm.filter_by_date("2025-10-11", "2025-10-15"))
+
+    print("\nFiltered by Category (Food):")
+    print(hm.filter_by_category("Food"))    
