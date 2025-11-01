@@ -1,3 +1,7 @@
+# budgeting.py
+# Author: Falak Sardar
+# Handles budget setting, updating, and expense tracking.
+
 class BudgetManager:
     def __init__(self):
         self.budgets = {}
@@ -34,21 +38,20 @@ class BudgetManager:
                 print(f"{category}: ₹{amount}")
 
 
-# ✅ Example usage
-print("The budgeting.py handles budget setting and pending calculations for each category.")
-
+# ✅ Test Section
 if __name__ == "_main_":
     print("BudgetManager test run started...\n")
-manager = BudgetManager()
-manager.set_budget("Food", 5000)
-manager.set_budget("Transport", 2000)
 
-transactions = [
-    {"category": "Food", "type": "expense", "amount": 1200},
-    {"category": "Transport", "type": "expense", "amount": 800},
-]
+    manager = BudgetManager()
+    manager.set_budget("Food", 5000)
+    manager.set_budget("Transport", 2000)
 
-print(manager.check_spending("Food", transactions))
-manager.list_budgets()
-manager.update_budget("Food", 6000)
-manager.list_budgets()
+    transactions = [
+        {"category": "Food", "type": "expense", "amount": 1200},
+        {"category": "Transport", "type": "expense", "amount": 800},
+    ]
+
+    print(manager.check_spending("Food", transactions))
+    manager.list_budgets()
+    manager.update_budget("Food", 6000)
+    manager.list_budgets()
