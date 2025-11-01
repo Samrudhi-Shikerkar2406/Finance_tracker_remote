@@ -16,3 +16,7 @@ class TransactionManager:
 
     def get_transactions_by_category(self, category):
         return [t for t in self.transactions if t['category'] == category]
+
+class HistoryManager:
+    def __init__(self, transaction_manager):
+        self.tm = transaction_manager
