@@ -13,3 +13,6 @@ class TransactionManager:
 
     def get_all_transactions(self):
         return self.transactions
+
+    def get_transactions_by_category(self, category):
+        return [t for t in self.transactions if t['category'] == category]
