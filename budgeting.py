@@ -37,6 +37,8 @@ class BudgetManager:
 # ✅ Example usage
 print("The budgeting.py handles budget setting and pending calculations for each category.")
 
+if __name__ == "_main_":
+    print("BudgetManager test run started...\n")
 manager = BudgetManager()
 manager.set_budget("Food", 5000)
 manager.set_budget("Transport", 2000)
