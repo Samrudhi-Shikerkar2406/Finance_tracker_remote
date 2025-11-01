@@ -39,7 +39,7 @@ class BudgetManager:
 
 
 # ✅ Test Section
-if __name__ == "_main_":
+if __name__ == "__main__":
     print("BudgetManager test run started...\n")
 
     manager = BudgetManager()
