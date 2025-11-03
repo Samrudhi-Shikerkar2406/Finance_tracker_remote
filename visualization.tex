@@ -1,0 +1,189 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{titling}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{fancyhdr} 
+% Enhanced Title and Author Formatting - Fancy & Professional
+
+% Title formatting with a rule above and below, larger font, and small caps
+% Enhanced Title formatting with horizontal rules and spacing
+% Title formatting with a rule above and below, larger font, and small caps
+\pretitle{%
+  \vspace*{2em}
+  \begin{center}
+  \Huge\scshape\bfseries
+  \MakeUppercase
+  \rule{\textwidth}\vspace{0.5em}%
+}
+\posttitle{%
+  \vspace{0.5em}
+  \rule{\textwidth}{1.5pt}
+  \end{center}
+  \vspace{1.5em}
+}
+
+% Author formatting with small caps, italic, and colored names
+\preauthor{%
+  \begin{center}
+  \large\itshape
+  \textcolor{blue}{Group Project}\\[0.5em]
+  \textcolor{black}{\scshape Anusha Shrivastava}
+  \end{center}
+  \vspace{1em}
+}
+\postauthor{}
+
+% Date formatting with smaller size and gray color, centered
+\predate{%
+  \begin{center}
+  \small\color{blue}
+}
+\postdate{%
+  \par\end{center}
+  \vspace{2em}
+}
+
+% Section formatting - slightly bolder and spaced nicely
+\titleformat{\section}{\Large\bfseries\color{black}}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries\color{cyan}}{\thesubsection}{1em}{}
+
+% Set line spacing
+\setstretch{1.25}
+
+% Hyperlink colors
+\hypersetup{
+  colorlinks=true,
+  linkcolor=cyan!70!black,
+  urlcolor=cyan!70!black,
+  citecolor=cyan!70!black
+}
+
+
+\title {Personal Finance Tracker \\ A Modular Approach to Managing Income, Expenses, Budgets, and Visualization}
+\author{}
+\date{\today} 
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textit{Personal Finance Tracker}}
+\fancyhead[R]{\textit{Anusha Shrivastava}}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyfoot[C]{\thepage}
+
+\setlength{\headheight}{15pt} 
+
+\begin{document}
+
+\maketitle
+
+\newpage
+\begin{abstract}
+\noindent This project presents a comprehensive personal finance tracker developed collaboratively by four team members. The system enables users to add, view, and categorize income and expense transactions, set budgets, track spending, and visualize expense patterns. This paper describes the design and implementation of the system’s core modules and highlights the visualization component developed to provide intuitive graphical understanding of users’ financial behavior.
+\end{abstract}
+
+\section{Introduction}
+Effective personal finance management is crucial for individual financial well-being. This project aims to provide a modular software solution that helps users monitor their financial transactions, manage budgets, and gain insights through visual analytics. The project was divided into four major modules, each developed by a different team member, to ensure modularity and focused development.
+
+\section{System Overview}
+The project consists of four primary modules:
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Transactions Module:} Manages income and expense entries with features like filtering and calculating totals.
+  \item \textbf{Budgeting Module:} Allows users to set, update, and track budgets per category.
+  \item \textbf{History Module:} Enables viewing and filtering transaction history by date and category.
+  \item \textbf{Visualization Module:} Provides graphical representation of financial data to enhance users’ comprehension of spending patterns.
+\end{itemize}
+Each module is designed to interact smoothly with the others, creating an integrated and user-friendly finance management system.
+
+\newpage
+\section{Detailed Module Descriptions}
+
+\subsection{Transactions Module}
+Handles adding validated transactions and supports viewing/filtering by category, type (income/expense), and date. Implements methods to calculate total income or expenses and to retrieve transactions over specific date ranges.
+
+\subsection{Budgeting Module}
+Supports creating and updating budget limits per category. Includes functions to check spending against budgets and reports remaining limits to help users control expenses effectively.
+
+\subsection{History Module}
+Offers transaction history review with filtering based on user-selected dates or categories, improving traceability and record audits.
+
+\newpage
+\section{Visualization Module (My Contribution)}
+
+\subsection{Objectives}
+To enhance user experience by providing clear, visual insights into their financial data, making complex expense data more accessible and understandable.
+
+\subsection{Implementation Details}
+Implemented in \texttt{visualization.py}, the \texttt{VisualizationManager} class accepts transaction data and generates pie charts representing expense distributions. Notification methods alert users to overspending.
+
+The main functionality includes:
+\begin{verbatim}
+import matplotlib.pyplot as plt
+
+class VisualizationManager:
+    def __init__(self, transactions):
+        self.transactions = transactions
+
+    def plot_expense_pie(self):
+        category_totals = {}
+        for t in self.transactions:
+            if t['type'] == 'expense':
+                category_totals[t['category']] = category_totals.get(t['category'], 0) + t['amount']
+        labels = list(category_totals.keys())
+        sizes = list(category_totals.values())
+        plt.pie(sizes, labels=labels, autopct='%1.1f%%')
+        plt.title('Expense by Category')
+        plt.show()
+
+    def notify(self, message):
+        print(f"ALERT: {message}")
+\end{verbatim}
+
+\subsection{Significance}
+Visual analytics helps users quickly grasp which spending areas dominate their expenses, enabling better budget adjustments and informed decision-making. The module integrates seamlessly with existing data structures from the Transactions module, ensuring real-time accurate visualizations.
+
+\subsection{Methodology}
+Data aggregation groups expenses by category. \texttt{matplotlib} is used to render pie charts. Notifications are triggered when spending exceeds predefined budgets based on integrated checks.
+
+\subsection{Programming Tools and Technologies}
+\begin{itemize}
+    \item Python 3
+    \item matplotlib for chart rendering
+    \item Standard Python data structures and I/O
+\end{itemize}
+
+\subsection{Testing and Validation}
+The module underwent unit testing with sample transaction sets to verify correct chart generation. Integration tests confirmed notifications worked when budgets were breached, and user trials validated usability.
+
+\subsection{Results and Output}
+The pie chart provides clear expense category distributions. Alert notifications inform users of budget overruns, contributing to more mindful spending habits.
+
+\section{Future Work}
+\begin{itemize}[leftmargin=*]
+  \item Adding interactive features to visualizations.
+  \item Exporting reports in multiple formats.
+  \item Incorporation of machine learning for expense prediction.
+\end{itemize}
+
+\section{Conclusion}
+This project demonstrates a modular design approach to building a personal finance tracker application. Each team member’s contributions together form a cohesive, functional system. The visualization module developed enhances the tool’s usability by providing valuable graphical insights, an essential feature for modern finance management applications.
+
+\section*{References}
+ 
+
+\hypersetup{
+    colorlinks = true,
+    linkcolor=blue,
+    urlcolor=red,
+    pdftitle={LaTeX Packages} 
+    }                                                                                                                                                    The source code for the Personal Finance Tracker project, including all modules, is publicly available on GitHub: \href{https://github.com/Samrudhi-Shikerkar2406/Finance_tracker_remote}{Personal Finance Tracker}
+
+\end{document}
