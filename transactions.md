@@ -31,7 +31,7 @@ This modular approach allows seamless integration with other components like **B
 ---
 
 ## ✨ Features Implemented
-- Add, view, and filter transactions.
+- Add, view, and filter transactionss.
 - Manage income and expense types.
 - Store category, date, and notes.
 - Calculate total income or expenses.
