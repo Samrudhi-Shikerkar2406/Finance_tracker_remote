@@ -1,0 +1,201 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{enumitem} % for customizing lists
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks = true,
+    linkcolor=blue,
+    urlcolor=red,
+    pdftitle={LaTeX Packages} 
+    }
+\urlstyle{same}
+
+\usepackage{fancyhdr} 
+\pagestyle{fancy}
+\fancyhf{}  
+
+\lhead{\textit{Personal Finance Tracker}}  
+
+\rhead{\textit{Falak Sardar}}
+
+\cfoot{\thepage}
+
+
+\title{\textbf{Personal Finance Tracker}}
+\author{Falak Sardar}
+\date{November 2025}
+
+\begin{document}
+\maketitle
+
+\noindent\textbf{\large Abstract} 
+
+\vspace{1.5 em}
+
+\noindent Personal financial management has become increasingly essential in today’s fast-paced digital world. This project presents a Personal Finance Tracker, a Python-based system designed to help users manage, analyze, and visualize their income and expenses efficiently. The system integrates multiple modules—Transaction Management, Budget Management, History Tracking, and Data Visualization—to provide users with a complete overview of their financial activities. Users can record transactions, set and monitor budgets, and visualize spending patterns through graphical representations.
+\noindent
+
+\section{Introduction}
+
+\noindent Effective personal finance management is a crucial aspect of modern life, yet many individuals struggle to monitor their income and expenses efficiently. The lack of accessible tools for tracking financial transactions often leads to overspending and poor budgeting decisions. To address this issue, our team developed a Personal Finance Tracker, a Python-based application designed to streamline financial record-keeping, expense monitoring, and budget management in a user-friendly way.
+
+\section{Objectives}
+
+\noindent The system aims to provide users with an organized and interactive way to record income and expenses, set budgets, and visualize spending trends. By combining different modules that handle transactions, budgeting, history tracking, and data visualization, the project seeks to encourage users to make informed financial decisions and develop responsible spending habits. Instead of taking real-time user inputs, the program operates through predefined test cases that simulate real-world financial activities.
+
+\begin{enumerate}
+    \item {To simulate financial transaction management.}
+    \item {To demonstrate budget monitoring and comparison.}
+    \item{To present historical transaction data.}
+    \item{To visualize financial data graphically.}
+    \item{To promote the concept of modular financial systems.}
+    
+\end{enumerate}
+
+\section{System Design and Architecture}
+
+\noindent The Personal Finance Tracker is designed using a modular architecture, where each component of the system is implemented as a separate Python module. This approach ensures clarity, scalability, and maintainability. Each module performs a specific function such as handling transactions, managing budgets, displaying transaction history, or visualizing financial data.
+
+\vspace{1.5em}
+
+\noindent The system is structured into four primary modules: 
+
+\begin{enumerate}
+    \item {\textbf{Transaction Management}}
+    \vspace{1em}
+    \newline
+    This is the core component responsible for managing income and expense records. It handles the addition, categorization and retrieval of financial transactions. It supports both income and expense entries, allowing users to filter and summarize data by category, type, or date range.
+
+    \vspace{0.5em}
+
+    \item{\textbf{Budget Management}}
+    \vspace{1em}
+    \newline
+    This module demonstrates how category-wise budgets can be created and compared against recorded transactions. It enables users to set, update, check how much of the budget has been spent or remains pending and monitor category-wise budgets.
+ 
+    \vspace{0.5em}
+
+    \item{\textbf{Transaction History}}
+    \vspace{1em}
+    \newline 
+    This module provides structured access to past transactions.
+    It offers efficient retrieval and filtering of transaction history based on categories or time frames, facilitating financial review and accountability.
+
+    \vspace{0.5em}
+
+    \item{\textbf{Visualization and Notification}}
+    \vspace{1em}
+    \newline 
+     The visualization component uses the matplotlib library to represent spending data graphically. It uses data visualization techniques, such as pie charts, to present spending distribution and provides notification alerts when spending approaches or exceeds limits.
+    
+\end{enumerate}
+
+\subsection{Data Flow and Interaction}
+The system’s data flow follows a logical sequence:
+
+\begin{itemize}
+    \item{Transactions are created and stored in the TransactionManager.}
+
+     \item{These records are then accessed by the BudgetManager to calculate category-wise spending and compare it with predefined budgets.}
+
+     \item{The HistoryManager retrieves these same transactions to generate filtered reports based on category or date.}
+
+     \item{Finally, the VisualizationManager reads the processed data and presents it graphically using pie charts.}
+  
+\end{itemize}
+
+\subsection{Design Approach}
+
+\noindent The project employs Object-Oriented Programming (OOP) principles to ensure modularity and reusability:
+
+\begin{itemize}
+    \item{Each manager class (TransactionManager, BudgetManager, HistoryManager, VisualizationManager) encapsulates its own data and methods.}
+
+    \item{This modular separation enables testing each component independently.}
+
+    \item{It also allows future expansion, such as integrating databases, user interfaces, or machine learning components, without changing the existing core structure.}
+    
+\end{itemize}
+
+\section{Module Description}
+
+\subsection{Transactions Module}
+The TransactionManager module is responsible for managing all income and expense transactions. Each transaction includes an amount, category, type (income or expense), date, and optional note. This module provides methods to add new transactions with validation, retrieve transactions by type, category, or date range, and calculate total income or expenses. It serves as the core data provider for other modules and ensures accurate financial tracking.
+
+\subsection{Budget Module}
+The BudgetManager module allows users to set, update, and monitor budgets for different categories. It calculates the total spending per category, compares it with the allocated budget, and provides the remaining balance. This module ensures that users can track their expenses effectively and receive alerts when spending approaches set limits, helping maintain financial discipline and avoid overspending.
+
+\subsection{History Module}
+The HistoryManager module provides functionality to review and filter past transactions. By interacting with the TransactionManager, it can display all transactions or filter them based on date range and category. This module allows users to analyze their financial behavior over time, identify spending patterns, and make informed decisions about future budgeting.
+
+\subsection{Visualization Module}
+The VisualizationManager module converts transaction data into graphical representations to offer intuitive insights into financial behavior. It generates pie charts that show expense distribution across categories and can trigger alert notifications when spending nears budget limits. By providing visual summaries and timely alerts, this module enhances the user’s ability to monitor finances efficiently and make strategic decisions.
+
+\section{Budget Module}
+
+\subsection{Objectives}
+
+\begin{itemize}
+    \item{Enables effective monitoring and control of personal expenses.}
+    \item{Allow users to set budgets for categories such as Food, Transport.}
+    \item{Provide timely feedback by calculating spent, remaining, and pending amounts.}
+    \item{Promote financial discipline and help users plan finances efficiently.}
+\end{itemize}
+
+\subsection{Implementation Details}
+
+\begin{itemize}
+    \item{Methods include setting budgets, updating budgets, and checking spending.}
+    \item {\textbf{set\_budget}: Allows users to set a budget for a specific category.}
+    \item{\textbf{get\_budget}: Retrieves the allocated budget for a category.}
+    \item{\textbf{check\_spending}: Calculates total spending in a category, compares it with the budget, and returns the remaining amount.}
+    \item{\textbf{update\_budget}: Updates the budget for a category if needed.}
+    \item{\textbf{list\_budgets}: Displays all category budgets.}
+    \item{Tested using predefined transaction scenarios to ensure accurate calculations and dynamic updates.}
+\end{itemize}
+
+\subsection{Significance}
+This module plays a key role in personal finance management by giving users a clear understanding of their spending patterns relative to their budgets. It empowers users to make informed financial decisions, avoid overspending, and achieve financial goals.
+
+\section{Methodology}
+
+\noindent The Personal Finance Tracker is implemented in Python to demonstrate the fundamental logic and workflow of a financial management system. The methodology focuses on using modular programming and object-oriented design to organize the code into distinct, testable components. \\
+
+\noindent The entire project was developed using Visual Studio Code (VS Code) as the primary integrated development environment (IDE), and GitHub was utilized for version control, collaborative coding, and repository management. This setup enabled the team to track code changes, resolve merge conflicts efficiently, and maintain an organized version history throughout the development process.
+
+\subsection{Programming Tools and Technologies}
+
+\begin{itemize}
+    \item{Programming Language: Python 3}
+    \item{Development Environment: Visual Studio Code (VS Code)}
+    \item{Version Control System: Git}
+    \item{Libraries and Modules Used:}
+    \begin{itemize}[label=\textopenbullet]
+      \item {datetime — for handling and formatting transaction dates}
+      \item{matplotlib — for generating pie chart visualizations of expenses}
+\end{itemize}
+    \item{Data Structures: Lists and dictionaries were used to store and organize transaction details, ensuring flexibility and simplicity.}
+\end{itemize}
+
+\subsection{Testing and Validation}
+
+The system does not take real-time user input. Instead, predefined test cases simulate typical financial activities:
+
+\begin{itemize}
+    \item{Adding sample income and expenses.}
+    \item{Setting budgets and checking spending limits.}
+    \item{Filtering historical transactions by category and date.}
+    \item{Generating pie charts for expense visualization.}
+\end{itemize}
+
+\noindent This approach ensures the correctness of each module while demonstrating the system workflow.
+
+\section{Conclusion}
+By integrating these components, the Personal Finance Tracker provides a comprehensive and structured approach to managing personal finances. The project also emphasizes modular programming practices, ensuring that each module operates independently while contributing to the system’s overall functionality. Furthermore, the use of Python’s object-oriented design and libraries like matplotlib enhances usability and makes the tool suitable for both beginners and advanced users interested in gaining insights into their financial behavior.
+
+\section{References}
+The source code for the Personal Finance Tracker project, including all modules, is publicly available on GitHub: \href{https://github.com/Samrudhi-Shikerkar2406/Finance_tracker_remote}{Personal Finance Tracker}
+
+\end{document}
+
